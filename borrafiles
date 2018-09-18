@@ -1,0 +1,27 @@
+####### 
+#Programa:borrafiles 
+#Fecha: 26-08-18 
+#Autor: moi 
+#Descripcion:"Borra" archivo moviéndolo a carpeta /home/user/papelera (también crea la carpeta y comprueba que exista)  
+####### 
+#! bin/bash
+clear
+if [ -d /tmp/papelera ];
+  then echo -e "El directorio papelera en /tmp \e[1;32mya existe\e[0m"
+else
+  mkdir /tmp/papelera;
+  echo -e "Se ha creado la carpeta papelera en /tmp \e[1;32mcon éxito\e[0m"
+fi
+  echo "Introduzca dirección de archivo a borrar" 
+  archivo=$archivo 
+  read archivo  
+  echo "¿Está seguro de eliminar '$archivo'? s/n"
+  respuesta=$respuesta
+  read respuesta
+if [ "$respuesta" == "s" ]; then
+   mv $archivo /tmp/papelera 
+	 echo -e "archivo '$archivo'\e[0;31meliminado\e[0m"
+fi
+if [ "$respuesta" == "n" ]; then
+	echo -e "archivo'$archivo'\e[1;32mno eliminado\e[0m"
+fi
