@@ -1,0 +1,14 @@
+####### 
+#Programa:recuperafiles 
+#Fecha: 26-08-18 
+#Autor: moi 
+#Descripcion:Recupera archivos "borrados" por el anterior script "borrafiles" y los pone en la carpeta home de usuario actual.
+####### 
+#! bin/bash
+clear
+cd /tmp/papelera
+echo "introduzca nombre de archivo a recuperar de papelera en /tmp" 
+archivo=$archivo 
+read archivo
+mv $archivo /home/`whoami`
+echo -e "archivo "$archivo" \e[1;32mrecuperado\e[0m en /home/`whoami`";
